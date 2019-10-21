@@ -8,7 +8,7 @@ from setuptools import find_packages, setup, Command
 # Package meta-data.
 NAME = 'summaqa'
 DESCRIPTION = "Supporting code for the EMNLP 2019 paper 'Answers Unite! Unsupervised Metrics for Reinforced Summarization Models'"
-URL = 'https://https://github.com/recitalAI/summa-qa'
+URL = 'https://github.com/recitalAI/summa-qa'
 EMAIL = 'contact@recital.ai'
 AUTHOR = 'Thomas Scialom'
 REQUIRES_PYTHON = '>=3.6.0'
