@@ -8,7 +8,9 @@ git clone https://github.com/recitalAI/summa-qa.git
 cd summa-qa
 python setup.py install
 # or
-pip install -U .
+pip install .
+# or
+pip install -e .
 ```
 <!-- or from pip:
 ```

@@ -2,12 +2,13 @@ import spacy
 from .f1_squad import f1_score
 from .qa_models import QA_Bert
 
-class QG_masked():
+class QG_masked:
     """
-    Cloze style Question Generator that based on spacy named entity recognition
+    Cloze style Question Generator based on spacy named entity recognition
     """
-    def __init__(self):
-        self.nlp = spacy.load("en")
+    def __init__(self,
+                 spacy_model="en_core_web_sm"):
+        self.nlp = spacy.load(spacy_model)
     
     def get_questions(self, text_input):
         """
@@ -30,7 +31,7 @@ class QG_masked():
                 
         return masked_questions, asws 
     
-class Metric_QA():
+class QAMetric:
     """
     Question Answering based metric
     """
@@ -39,7 +40,7 @@ class Metric_QA():
         if model is None: model = QA_Bert()
         self.model = model
           
-    def compute_metric(self, questions, true_asws, evaluated_text):
+    def compute(self, questions, true_asws, evaluated_text):
         """
         Calculate the QA scores for a given text we want to evaluate and a list of questions and their answers.
         Args:
@@ -67,21 +68,21 @@ def evaluate_corpus(srcs, gens, model=None, questionss=None, aswss=None):
     """
     Calculate the QA scores for an entire corpus.
     Args:
-      srcs: a list of string
-      gens: a list of string
+      srcs: a list of string (one string per document)
+      gens: a list of string (one string per summary)
       model: [optional]: any model that fits the function predict in qa_models; by default BERT_QA
       questionss: [optional]: a list of list with the questions already generated for each src. If None, it will generate it.
       aswss: [optional]: a list of list with the ground truth asws for the questions (questionss). If None, it will generate it as well.
     Returns:
       a dict containing the probability score and f-score, averaged for the corpus
     """
-    assert any([questionss, aswss]) == all([questionss, aswss]), "questionss ot aswss should be None if the other is None"
+    assert any([questionss, aswss]) == all([questionss, aswss]), "questionss/aswss should be None if the other is None"
     
     #if questionss is None initialize a question generator
     if not questionss:
         question_generator = QG_masked()
     #initialize the metric with a QA model
-    qa_metricor = Metric_QA(model)
+    qa_metric = QAMetric(model)
     
     global_score = {"avg_prob": 0 , "avg_fscore": 0}
     
@@ -94,7 +95,7 @@ def evaluate_corpus(srcs, gens, model=None, questionss=None, aswss=None):
             masked_questions, masked_question_asws = questionss[i], aswss[i]
             
         #compute the metric
-        gen_score = qa_metricor.compute_metric(masked_questions, masked_question_asws, gen)
+        gen_score = qa_metric.compute(masked_questions, masked_question_asws, gen)
         global_score['avg_prob'] += gen_score['avg_prob']
         global_score['avg_fscore'] += gen_score['avg_fscore']
        

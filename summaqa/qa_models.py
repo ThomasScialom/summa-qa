@@ -1,4 +1,4 @@
- #code from hugging face see https://huggingface.co/transformers/model_doc/bert.html#bertforquestionanswering
+ # code from huggingface see https://huggingface.co/transformers/model_doc/bert.html#bertforquestionanswering
 
 import torch
 from transformers import BertTokenizer, BertForQuestionAnswering
