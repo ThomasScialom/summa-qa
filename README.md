@@ -1,19 +1,19 @@
 # SummaQA
-*A full Python librarie for the Summarization QA metric [(paper)](https://arxiv.org/abs/1909.01610).*
+*Supporting code for the EMNLP 2019 paper ["Answers Unite! Unsupervised Metrics for Reinforced Summarization Models"](https://arxiv.org/abs/1909.01610)*
 
 ## Quickstart
 #### Clone & Install
 ```shell
-git clone https://github.com/xx/xx
-cd SummaQA
+git clone https://github.com/recitalAI/summa-qa.git
+cd summa-qa
 python setup.py install
 # or
 pip install -U .
 ```
-or from pip:
+<!-- or from pip:
 ```
 pip install SummaQA
-```
+``` -->
 
 #### As a library
 
