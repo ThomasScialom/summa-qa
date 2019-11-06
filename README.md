@@ -3,11 +3,11 @@
 
 ## Quickstart
 #### Clone & Install (*recommended: use a virtual environment*)
+##### The following assumes PyTorch (>=1.1.0) is installed in your environment
 ```shell
 git clone https://github.com/recitalAI/summa-qa.git
 cd summa-qa
-pip install -r requirements.txt
-pip install [-e] .
+pip install -e .
 ```
 
 #### Generate questions and answers for a text doccument

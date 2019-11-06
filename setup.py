@@ -15,9 +15,8 @@ REQUIRES_PYTHON = '>=3.6.0'
 VERSION = '0.1.0'
 
 REQUIRED = [
-    'spacy', 
+    'spacy>=2.2.0', 
     'en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz',
-    'torch==1.1.0', 
     'transformers==2.1.1',
 ]
 
