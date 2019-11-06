@@ -1,6 +1,8 @@
 # SummaQA
 *Supporting code for the EMNLP 2019 paper ["Answers Unite! Unsupervised Metrics for Reinforced Summarization Models"](https://arxiv.org/abs/1909.01610)*
 
+![](fig_emnlp.png)
+
 ## Quickstart
 #### Clone & Install (*recommended: use a virtual environment*)
 ##### The following assumes PyTorch (>=1.1.0) is installed in your environment
