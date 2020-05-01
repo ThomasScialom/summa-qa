@@ -42,10 +42,12 @@ print("summary 2:", score_2)
 *Output:*
 
 ```
-summary 1: {'avg_prob': 0.0885990257628019, 'avg_fscore': 0.19888517279821627}
-summary 2: {'avg_prob': 0.006263150813300972, 'avg_fscore': 0.0}
+summary 1: {'avg_prob': 0.10436534642455324, 'avg_fscore': 0.19754273504273503}
+summary 2: {'avg_prob': 0.006622146878119868, 'avg_fscore': 0.0}
 
 ```
+
+
 
 #### Score multiple summaries
 ```python
@@ -61,5 +63,4 @@ evaluate_corpus(srcs, gens)
 *Output:*
 
 ```
-{'avg_prob': 0.04743108828805144, 'avg_fscore': 0.09944258639910813}
-```
+{'avg_prob': 0.05549374665133655, 'avg_fscore': 0.09877136752136752}```
